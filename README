@@ -1,0 +1,3 @@
+Converting ODEPack [1] into C code. The goal is to be able to execute it on GPU.
+
+[1] https://computation.llnl.gov/casc/odepack/
