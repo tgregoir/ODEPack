@@ -49,3 +49,4 @@ clean:
 	@rm -rf cfiles
 	@rm -f $(FSPLIT)
 	@make -C libf2c clean
+	@make -C test clean
