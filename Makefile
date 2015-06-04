@@ -38,8 +38,6 @@ extract: original/opksa1.f original/opksa2.f original/opksmain.f
 	#@sed -i '$$a#ifdef __cplusplus\n}\n#endif\n' cfiles/*.c
 	@echo "Compiling libf2c..."
 	@make -C libf2c
-	@cp libf2c/*.o cfiles
-	@rm cfiles/main.o
 	@echo "int MAIN__(void) {}\nint xargc;\nchar **xargv;" > cfiles/fix.c
 	@cd cfiles && gcc -c *.c
 
