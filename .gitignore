@@ -1,2 +1,9 @@
 utils/fsplit
 extracted
+*.o
+cfiles/*
+test/demo
+libf2c/libf2c.a
+libf2c/arith.h
+libf2c/signal1.h
+libf2c/sysdep1.h
