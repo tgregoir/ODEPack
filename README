@@ -1,3 +1,9 @@
-Converting LSODE [1] into C code. The goal is to be able to execute it on GPU.
+This repository contains a script that converts LSODE [1] into C code. The aim is to obtain a standalone version, that does not require any external dependencies.
+
+For now, the script builds a C version. The goal is to embed this solver on GPU, so a CUDA version should follow soon. The Makefile is somewhat ugly and will be fixed in the future.
+
+On top of the original ODEPack, we include a copy of libf2c [2] as well as fsplit [3].
 
 [1] https://computation.llnl.gov/casc/odepack/
+[2] http://www.netlib.org/f2c/libf2c.zip
+[3] http://www.opensource.apple.com/source/developer_cmds/developer_cmds-28/fsplit/fsplit.c
