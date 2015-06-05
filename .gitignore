@@ -2,7 +2,7 @@ utils/fsplit
 extracted
 *.o
 cfiles/*
-test/demo
+driver/demo
 libf2c/libf2c.a
 libf2c/arith.h
 libf2c/signal1.h
