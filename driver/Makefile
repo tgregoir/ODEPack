@@ -5,10 +5,10 @@ OFILES := $(foreach f,$(LIBF2C_FILES), ../libf2c/$(f).o)
 
 all: demo
 
-demo: test.c lsode.c
+demo: test.c odesolve.c
 	@gcc -c test.c
-	@gcc -c lsode.c
-	@gcc test.o lsode.o ../cfiles/*.o $(OFILES) -o demo -lm
+	@gcc -c odesolve.c
+	@gcc test.o odesolve.o ../cfiles/*.o $(OFILES) -o demo -lm
 
 clean:
-	@rm -f test.o demo
+	@rm -f test.o odesolve.o demo

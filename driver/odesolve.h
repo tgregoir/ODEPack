@@ -1,5 +1,5 @@
-#ifndef LSODE_H
-#define LSODE_H
+#ifndef ODESOLVE_H
+#define ODESOLVE_H
 
 typedef void (*fct)(int *, float *, float *, float *);
 typedef void (*jacfct)(int *, float *, float *, int *, int *, float *,
@@ -14,4 +14,4 @@ int slsode_(fct f, int *neq, float *y, float *t, float *tout,
 int odesolve(fct, int, float *, float, float, int, float *, float *,
              jacfct, int);
 
-#endif /* LSODE_H */
+#endif /* ODESOLVE_H */

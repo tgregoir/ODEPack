@@ -1,4 +1,4 @@
-#include "lsode.h"
+#include "odesolve.h"
 
 #include <stdlib.h>
 
