@@ -8,7 +8,7 @@ all: demo
 demo: test.c odesolve.c
 	@gcc -c test.c
 	@gcc -c odesolve.c
-	@gcc test.o odesolve.o ../cfiles/*.o $(OFILES) -o demo -lm
+	@gcc test.o odesolve.o ../complete/*.o -o demo -lm
 
 clean:
 	@rm -f test.o odesolve.o demo
