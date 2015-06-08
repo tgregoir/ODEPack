@@ -1,126 +1,78 @@
-/* slsode.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Common Block Declarations */
-
-struct {
-    real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
-    integer init, mxstep, mxhnil, nhnil, nslast, nyh, iowns[6], icf, ierpj, 
-	    iersl, jcur, jstart, kflag, l, lyh, lewt, lacor, lsavf, lwm, liwm,
-	     meth, miter, maxord, maxcor, msbp, mxncf, n, nq, nst, nfe, nje, 
-	    nqu;
-} sls001_;
-
-#define sls001_1 sls001_
-
-/* Table of constant values */
-
-static integer c__0 = 0;
-static integer c__50 = 50;
-static integer c__101 = 101;
-static real c_b76 = 0.f;
-static integer c__60 = 60;
-static integer c__2 = 2;
-static integer c__102 = 102;
-static integer c__1 = 1;
-static integer c__201 = 201;
-static integer c__202 = 202;
-static integer c__203 = 203;
-static integer c__204 = 204;
-static integer c__205 = 205;
-static integer c__30 = 30;
-static integer c__3 = 3;
-static integer c__4 = 4;
-static integer c__5 = 5;
-static integer c__6 = 6;
-static integer c__7 = 7;
-static integer c__8 = 8;
-static integer c__9 = 9;
-static integer c__10 = 10;
-static integer c__11 = 11;
-static integer c__12 = 12;
-static integer c__13 = 13;
-static integer c__40 = 40;
-static integer c__14 = 14;
-static integer c__15 = 15;
-static integer c__16 = 16;
-static integer c__17 = 17;
-static integer c__18 = 18;
-static integer c__19 = 19;
-static integer c__20 = 20;
-static integer c__21 = 21;
-static integer c__22 = 22;
-static integer c__23 = 23;
-static integer c__24 = 24;
-static integer c__25 = 25;
-static integer c__26 = 26;
-static integer c__27 = 27;
-static integer c__303 = 303;
-
 /* DECK SLSODE */
-/* Subroutine */ int slsode_(S_fp f, integer *neq, real *y, real *t, real *
+/* Subroutine */
+__device__ int slsode_(S_fp f, integer *neq, real *y, real *t, real *
 	tout, integer *itol, real *rtol, real *atol, integer *itask, integer *
 	istate, integer *iopt, real *rwork, integer *lrw, integer *iwork, 
 	integer *liw, U_fp jac, integer *mf)
 {
+    /* Common Block Declarations */
+
+    struct {
+        real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
+        integer init, mxstep, mxhnil, nhnil, nslast, nyh, iowns[6], icf, ierpj, 
+	        iersl, jcur, jstart, kflag, l, lyh, lewt, lacor, lsavf, lwm, liwm,
+	         meth, miter, maxord, maxcor, msbp, mxncf, n, nq, nst, nfe, nje, 
+	        nqu;
+    } sls001_;
+
+    #define sls001_1 sls001_
+
+    /* Table of constant values */
+
+    integer c__0 = 0;
+
     /* Initialized data */
 
-    static integer mord[2] = { 12,5 };
-    static integer mxstp0 = 500;
-    static integer mxhnl0 = 10;
+    integer mord[2] = { 12,5 };
+    integer mxstp0 = 500;
+    integer mxhnl0 = 10;
 
     /* System generated locals */
     integer i__1, i__2;
     real r__1, r__2;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_sign(real *, real *);
+    extern __device__ double /*sqrt(doublereal),*/ r_sign(real *, real *);
 
     /* Local variables */
-    static integer i__;
-    static real h0;
-    static integer i1, i2;
-    static real w0;
-    static integer ml;
-    static real rh;
-    static integer mu;
-    static real tp;
-    static integer lf0;
-    static real big;
-    static integer kgo;
-    static real ayi;
-    static char msg[80];
-    static real hmx, tol, sum, hmax;
-    static logical ihit;
-    static real ewti, size;
-    static integer iflag;
-    static real atoli;
-    static integer leniw, lenwm, imxer;
-    static real tcrit;
-    static integer lenrw;
-    static real tdist, rtoli, tolsf, tnext;
-    extern doublereal rumach_(void);
-    extern /* Subroutine */ int sstode_(integer *, real *, real *, integer *, 
+    integer i__;
+    real h0;
+    integer i1, i2;
+    real w0;
+    integer ml;
+    real rh;
+    integer mu;
+    real tp;
+    integer lf0;
+    real big;
+    integer kgo;
+    real ayi;
+    real hmx, tol, sum, hmax;
+    logical ihit;
+    real size;
+    integer iflag;
+    real atoli;
+    integer leniw, lenwm, imxer;
+    real tcrit;
+    integer lenrw;
+    real tdist, rtoli, tolsf, tnext;
+    extern __device__ doublereal rumach_(void);
+    extern /* Subroutine */ __device__ int sstode_(integer *, real *, real *, integer *, 
 	    real *, real *, real *, real *, real *, integer *, S_fp, U_fp, 
 	    U_fp, U_fp);
-    extern /* Subroutine */ int sprepj_();
-    extern /* Subroutine */ int sewset_(integer *, integer *, real *, real *, 
+    extern /* Subroutine */ __device__ int sprepj_();
+    extern /* Subroutine */ __device__ int sewset_(integer *, integer *, real *, real *, 
 	    real *, real *), sintdy_(real *, integer *, real *, integer *, 
 	    real *, integer *);
-    extern doublereal svnorm_(integer *, real *, real *);
-    extern /* Subroutine */ int ssolsy_();
-    extern /* Subroutine */ int xerrwv_(char *, integer *, integer *, integer 
+    extern __device__ doublereal svnorm_(integer *, real *, real *);
+    extern /* Subroutine */ __device__ int ssolsy_();
+    extern /* Subroutine */ __device__ int xerrwv_(char *, integer *, integer *, integer 
 	    *, integer *, integer *, integer *, integer *, real *, real *, 
 	    ftnlen);
 
@@ -1945,7 +1897,6 @@ L500:
     goto L580;
 /* EWT(I) .LE. 0.0 for some I (not at start of problem). ---------------- */
 L510:
-    ewti = rwork[sls001_1.lewt + i__ - 1];
     *istate = -6;
     goto L580;
 /* Too much accuracy requested for machine precision. ------------------- */
@@ -2045,7 +1996,6 @@ L619:
 L620:
     goto L700;
 L621:
-    ewti = rwork[sls001_1.lewt + i__ - 1];
     goto L700;
 L622:
     goto L700;
@@ -2068,4 +2018,8 @@ L800:
     return 0;
 /* ----------------------- END OF SUBROUTINE SLSODE ---------------------- */
 } /* slsode_ */
+
+#ifdef __cplusplus
+}
+#endif
 

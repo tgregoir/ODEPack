@@ -1,57 +1,50 @@
-/* sstode.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Common Block Declarations */
-
-struct {
-    real conit, crate, el[13], elco[156]	/* was [13][12] */, hold, 
-	    rmax, tesco[36]	/* was [3][12] */, ccmax, el0, h__, hmin, 
-	    hmxi, hu, rc, tn, uround;
-    integer iownd[6], ialth, ipup, lmax, meo, nqnyh, nslp, icf, ierpj, iersl, 
-	    jcur, jstart, kflag, l, lyh, lewt, lacor, lsavf, lwm, liwm, meth, 
-	    miter, maxord, maxcor, msbp, mxncf, n, nq, nst, nfe, nje, nqu;
-} sls001_;
-
-#define sls001_1 sls001_
-
 /* DECK SSTODE */
-/* Subroutine */ int sstode_(integer *neq, real *y, real *yh, integer *nyh, 
+/* Subroutine */
+__device__ int sstode_(integer *neq, real *y, real *yh, integer *nyh, 
 	real *yh1, real *ewt, real *savf, real *acor, real *wm, integer *iwm, 
 	S_fp f, U_fp jac, S_fp pjac, S_fp slvs)
 {
+    /* Common Block Declarations */
+
+    struct {
+        real conit, crate, el[13], elco[156]	/* was [13][12] */, hold, 
+	        rmax, tesco[36]	/* was [3][12] */, ccmax, el0, h__, hmin, 
+	        hmxi, hu, rc, tn, uround;
+        integer iownd[6], ialth, ipup, lmax, meo, nqnyh, nslp, icf, ierpj, iersl, 
+    	    jcur, jstart, kflag, l, lyh, lewt, lacor, lsavf, lwm, liwm, meth, 
+	        miter, maxord, maxcor, msbp, mxncf, n, nq, nst, nfe, nje, nqu;
+    } sls001_;
+
+    #define sls001_1 sls001_
+
     /* System generated locals */
     integer yh_dim1, yh_offset, i__1, i__2;
     real r__1, r__2, r__3;
     doublereal d__1, d__2;
 
     /* Builtin functions */
-    double pow_dd(doublereal *, doublereal *);
+    extern __device__ double pow_dd(doublereal *, doublereal *);
 
     /* Local variables */
-    static integer i__, j, m;
-    static real r__;
-    static integer i1, jb;
-    static real rh, del, ddn;
-    static integer ncf;
-    static real dsm, dup, dcon, delp, rhdn, exdn;
-    static integer iret;
-    static real told, rhsm;
-    static integer newq;
-    static real exsm, rhup, exup;
-    static integer iredo;
-    extern /* Subroutine */ int scfode_(integer *, real *, real *);
-    extern doublereal svnorm_(integer *, real *, real *);
+    integer i__, j, m;
+    real r__;
+    integer i1, jb;
+    real rh, del, ddn;
+    integer ncf;
+    real dsm, dup, dcon, delp, rhdn, exdn;
+    integer iret;
+    real told, rhsm;
+    integer newq;
+    real exsm, rhup, exup;
+    integer iredo;
+    extern /* Subroutine */ __device__ int scfode_(integer *, real *, real *);
+    extern __device__ doublereal svnorm_(integer *, real *, real *);
 
 /* ***BEGIN PROLOGUE  SSTODE */
 /* ***SUBSIDIARY */
@@ -763,4 +756,8 @@ L720:
     return 0;
 /* ----------------------- END OF SUBROUTINE SSTODE ---------------------- */
 } /* sstode_ */
+
+#ifdef __cplusplus
+}
+#endif
 

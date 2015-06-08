@@ -1,58 +1,39 @@
-/* sintdy.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Common Block Declarations */
-
-struct {
-    real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
-    integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
-	    lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
-	    msbp, mxncf, n, nq, nst, nfe, nje, nqu;
-} sls001_;
-
-#define sls001_1 sls001_
-
-/* Table of constant values */
-
-static integer c__30 = 30;
-static integer c__51 = 51;
-static integer c__0 = 0;
-static integer c__1 = 1;
-static real c_b20 = 0.f;
-static integer c__52 = 52;
-static integer c__60 = 60;
-static integer c__2 = 2;
-
 /* DECK SINTDY */
-/* Subroutine */ int sintdy_(real *t, integer *k, real *yh, integer *nyh, 
+/* Subroutine */
+__device__ int sintdy_(real *t, integer *k, real *yh, integer *nyh, 
 	real *dky, integer *iflag)
 {
+    /* Common Block Declarations */
+
+    struct {
+        real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
+        integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
+	        lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
+	        msbp, mxncf, n, nq, nst, nfe, nje, nqu;
+    } sls001_;
+
+    #define sls001_1 sls001_
+
     /* System generated locals */
     integer yh_dim1, yh_offset, i__1, i__2;
     real r__1;
 
     /* Builtin functions */
-    double r_sign(real *, real *), pow_ri(real *, integer *);
+    extern __device__ double r_sign(real *, real *), pow_ri(real *, integer *);
 
     /* Local variables */
-    static real c__;
-    static integer i__, j;
-    static real r__, s;
-    static integer ic, jb, jj;
-    static real tp;
-    static integer jb2, jj1, jp1;
-    static char msg[80];
+    real c__;
+    integer i__, j;
+    real r__, s;
+    integer ic, jb, jj;
+    real tp;
+    integer jb2, jj1, jp1;
 
 /* ***BEGIN PROLOGUE  SINTDY */
 /* ***SUBSIDIARY */
@@ -180,4 +161,8 @@ L90:
     return 0;
 /* ----------------------- END OF SUBROUTINE SINTDY ---------------------- */
 } /* sintdy_ */
+
+#ifdef __cplusplus
+}
+#endif
 

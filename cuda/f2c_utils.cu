@@ -1,16 +1,16 @@
-#include "f2c.h"
-#include <math.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-double pow_dd(doublereal *ap, doublereal *bp)
+#include "f2c.h"
+#include <math.h>
+
+__device__ double pow_dd(doublereal *ap, doublereal *bp)
 {
 	return pow(*ap, *bp);
 }
 
-double pow_ri(real *ap, integer *bp)
+__device__ double pow_ri(real *ap, integer *bp)
 {
 	double pow, x;
 	integer n;
@@ -39,7 +39,7 @@ double pow_ri(real *ap, integer *bp)
 	return(pow);
 }
 
-double r_sign(real *a, real *b)
+__device__ double r_sign(real *a, real *b)
 {
 	double x;
 	x = (*a >= 0 ? *a : -*a);
@@ -49,3 +49,4 @@ double r_sign(real *a, real *b)
 #ifdef __cplusplus
 }
 #endif
+

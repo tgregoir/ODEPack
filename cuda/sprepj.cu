@@ -1,60 +1,53 @@
-/* sprepj.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Common Block Declarations */
-
-struct {
-    real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
-    integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
-	    lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
-	    msbp, mxncf, n, nq, nst, nfe, nje, nqu;
-} sls001_;
-
-#define sls001_1 sls001_
-
-/* Table of constant values */
-
-static integer c__0 = 0;
-
 /* DECK SPREPJ */
-/* Subroutine */ int sprepj_(integer *neq, real *y, real *yh, integer *nyh, 
+/* Subroutine */
+__device__ int sprepj_(integer *neq, real *y, real *yh, integer *nyh, 
 	real *ewt, real *ftem, real *savf, real *wm, integer *iwm, S_fp f, 
 	S_fp jac)
 {
+    /* Common Block Declarations */
+
+    struct {
+        real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
+        integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
+	        lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
+	        msbp, mxncf, n, nq, nst, nfe, nje, nqu;
+    } sls001_;
+
+    #define sls001_1 sls001_
+
+    /* Table of constant values */
+
+    integer c__0 = 0;
+
     /* System generated locals */
     integer yh_dim1, yh_offset, i__1, i__2, i__3, i__4;
     real r__1, r__2;
 
     /* Local variables */
-    static integer i__, j;
-    static real r__;
-    static integer i1, i2, j1;
-    static real r0, di;
-    static integer ii, jj, ml, mu;
-    static real yi, yj, hl0;
-    static integer ml3, np1;
-    static real fac;
-    static integer mba, ier;
-    static real con, yjj;
-    static integer meb1, lenp;
-    static real srur;
-    static integer mband;
-    extern /* Subroutine */ int sgbfa_(real *, integer *, integer *, integer *
+    integer i__, j;
+    real r__;
+    integer i1, i2, j1;
+    real r0, di;
+    integer ii, jj, ml, mu;
+    real yi, yj, hl0;
+    integer ml3, np1;
+    real fac;
+    integer mba, ier;
+    real con, yjj;
+    integer meb1, lenp;
+    real srur;
+    integer mband;
+    extern /* Subroutine */ __device__ int sgbfa_(real *, integer *, integer *, integer *
 	    , integer *, integer *, integer *), sgefa_(real *, integer *, 
 	    integer *, integer *, integer *);
-    static integer meband;
-    extern doublereal svnorm_(integer *, real *, real *);
+    integer meband;
+    extern __device__ doublereal svnorm_(integer *, real *, real *);
 
 /* ***BEGIN PROLOGUE  SPREPJ */
 /* ***SUBSIDIARY */
@@ -316,4 +309,8 @@ L570:
     return 0;
 /* ----------------------- END OF SUBROUTINE SPREPJ ---------------------- */
 } /* sprepj_ */
+
+#ifdef __cplusplus
+}
+#endif
 

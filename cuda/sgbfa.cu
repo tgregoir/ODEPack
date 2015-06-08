@@ -1,35 +1,28 @@
-/* sgbfa.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Table of constant values */
-
-static integer c__1 = 1;
-
 /* DECK SGBFA */
-/* Subroutine */ int sgbfa_(real *abd, integer *lda, integer *n, integer *ml, 
+/* Subroutine */
+__device__ int sgbfa_(real *abd, integer *lda, integer *n, integer *ml, 
 	integer *mu, integer *ipvt, integer *info)
 {
+    /* Table of constant values */
+
+    integer c__1 = 1;
+
     /* System generated locals */
     integer abd_dim1, abd_offset, i__1, i__2, i__3, i__4;
 
     /* Local variables */
-    static integer i__, j, k, l, m;
-    static real t;
-    static integer i0, j0, j1, lm, mm, ju, jz, kp1, nm1;
-    extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *), 
+    integer i__, j, k, l, m;
+    real t;
+    integer i0, j0, j1, lm, mm, ju, jz, kp1, nm1;
+    extern /* Subroutine */ __device__ int sscal_(integer *, real *, real *, integer *), 
 	    saxpy_(integer *, real *, real *, integer *, real *, integer *);
-    extern integer isamax_(integer *, real *, integer *);
+    extern __device__ integer isamax_(integer *, real *, integer *);
 
 /* ***BEGIN PROLOGUE  SGBFA */
 /* ***PURPOSE  Factor a band matrix using Gaussian elimination. */
@@ -255,4 +248,8 @@ L130:
     }
     return 0;
 } /* sgbfa_ */
+
+#ifdef __cplusplus
+}
+#endif
 

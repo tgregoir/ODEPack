@@ -1,34 +1,27 @@
-/* sgesl.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Table of constant values */
-
-static integer c__1 = 1;
-
 /* DECK SGESL */
-/* Subroutine */ int sgesl_(real *a, integer *lda, integer *n, integer *ipvt, 
+/* Subroutine */
+__device__ int sgesl_(real *a, integer *lda, integer *n, integer *ipvt, 
 	real *b, integer *job)
 {
+    /* Table of constant values */
+
+    integer c__1 = 1;
+
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
 
     /* Local variables */
-    static integer k, l;
-    static real t;
-    static integer kb, nm1;
-    extern doublereal sdot_(integer *, real *, integer *, real *, integer *);
-    extern /* Subroutine */ int saxpy_(integer *, real *, real *, integer *, 
+    integer k, l;
+    real t;
+    integer kb, nm1;
+    extern __device__ doublereal sdot_(integer *, real *, integer *, real *, integer *);
+    extern /* Subroutine */ __device__ int saxpy_(integer *, real *, real *, integer *, 
 	    real *, integer *);
 
 /* ***BEGIN PROLOGUE  SGESL */
@@ -186,4 +179,8 @@ L90:
 L100:
     return 0;
 } /* sgesl_ */
+
+#ifdef __cplusplus
+}
+#endif
 

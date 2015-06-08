@@ -1,47 +1,40 @@
-/* ssolsy.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Common Block Declarations */
-
-struct {
-    real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
-    integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
-	    lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
-	    msbp, mxncf, n, nq, nst, nfe, nje, nqu;
-} sls001_;
-
-#define sls001_1 sls001_
-
-/* Table of constant values */
-
-static integer c__0 = 0;
-
 /* DECK SSOLSY */
-/* Subroutine */ int ssolsy_(real *wm, integer *iwm, real *x, real *tem)
+/* Subroutine */
+__device__ int ssolsy_(real *wm, integer *iwm, real *x, real *tem)
 {
+    /* Common Block Declarations */
+
+    struct {
+        real rowns[209], ccmax, el0, h__, hmin, hmxi, hu, rc, tn, uround;
+        integer iownd[6], iowns[6], icf, ierpj, iersl, jcur, jstart, kflag, l, 
+	        lyh, lewt, lacor, lsavf, lwm, liwm, meth, miter, maxord, maxcor, 
+	        msbp, mxncf, n, nq, nst, nfe, nje, nqu;
+    } sls001_;
+
+    #define sls001_1 sls001_
+
+    /* Table of constant values */
+
+    integer c__0 = 0;
+
     /* System generated locals */
     integer i__1;
 
     /* Local variables */
-    static integer i__;
-    static real r__, di;
-    static integer ml, mu;
-    static real hl0, phl0;
-    extern /* Subroutine */ int sgbsl_(real *, integer *, integer *, integer *
+    integer i__;
+    real r__, di;
+    integer ml, mu;
+    real hl0, phl0;
+    extern /* Subroutine */ __device__ int sgbsl_(real *, integer *, integer *, integer *
 	    , integer *, integer *, real *, integer *), sgesl_(real *, 
 	    integer *, integer *, integer *, real *, integer *);
-    static integer meband;
+    integer meband;
 
 /* ***BEGIN PROLOGUE  SSOLSY */
 /* ***SUBSIDIARY */
@@ -143,4 +136,8 @@ L400:
     return 0;
 /* ----------------------- END OF SUBROUTINE SSOLSY ---------------------- */
 } /* ssolsy_ */
+
+#ifdef __cplusplus
+}
+#endif
 

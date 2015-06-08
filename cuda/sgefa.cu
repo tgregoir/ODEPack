@@ -1,35 +1,28 @@
-/* sgefa.f -- translated by f2c (version 20100827).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
-
-		http://www.netlib.org/f2c/libf2c.zip
-*/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include "f2c.h"
 
-/* Table of constant values */
-
-static integer c__1 = 1;
-
 /* DECK SGEFA */
-/* Subroutine */ int sgefa_(real *a, integer *lda, integer *n, integer *ipvt, 
+/* Subroutine */
+__device__ int sgefa_(real *a, integer *lda, integer *n, integer *ipvt, 
 	integer *info)
 {
+    /* Table of constant values */
+
+    integer c__1 = 1;
+
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
 
     /* Local variables */
-    static integer j, k, l;
-    static real t;
-    static integer kp1, nm1;
-    extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *), 
+    integer j, k, l;
+    real t;
+    integer kp1, nm1;
+    extern /* Subroutine */ __device__ int sscal_(integer *, real *, real *, integer *), 
 	    saxpy_(integer *, real *, real *, integer *, real *, integer *);
-    extern integer isamax_(integer *, real *, integer *);
+    extern __device__ integer isamax_(integer *, real *, integer *);
 
 /* ***BEGIN PROLOGUE  SGEFA */
 /* ***PURPOSE  Factor a matrix using Gaussian elimination. */
@@ -167,4 +160,8 @@ L70:
     }
     return 0;
 } /* sgefa_ */
+
+#ifdef __cplusplus
+}
+#endif
 
